@@ -6,10 +6,19 @@ class App extends Component {
     super(props);
     this.state = {
       weight: '',
-      height: ''
+      height: '',
+      method: 'Metric'
     }
   }
-  
+
+  chooseMethod() {
+    if (this.state.chooseMethod === 'Metric') {
+      this.setState({ chooseMethod: 'Imperial' })
+    } else {
+      this.setState({chooseMethod: 'Metric'})
+      }
+  }
+
   render() {
     return (
       <div>
@@ -31,6 +40,5 @@ class App extends Component {
     );
   }
 }
-  
 
 export default App;
