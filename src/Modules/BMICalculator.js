@@ -34,5 +34,3 @@ const setBMIMessage = (finalBMI) => {
     return "Obese";
   }
 }
-
-//export default BMICalculator 
