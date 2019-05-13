@@ -1,6 +1,7 @@
-export const bmiCalculator = (weight, height, method) => {
+export const bmiCalculation = (weight, height, method) => {
   parseFloat(weight);
   parseFloat(height);
+  let bmi;
 
   weight = isNaN(weight) ? 0 : weight;
   height = isNaN(height) ? 0 : height;
@@ -33,3 +34,5 @@ const setBMIMessage = (finalBMI) => {
     return "Obese";
   }
 }
+
+//export default BMICalculator 
