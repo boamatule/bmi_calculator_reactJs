@@ -10,9 +10,7 @@ class App extends Component {
       method: 'Metric'
     }
   }
-
   
-
   chooseMethod() {
     if (this.state.chooseMethod === 'Metric') {
       this.setState({ chooseMethod: 'Imperial' })
@@ -21,28 +19,32 @@ class App extends Component {
       }
   }
 
-
-
-  render() {
+render() {
     return (
       <div>
         <div>
-          <label>Weight(kg)</label>
-          <input name="weight" value={this.state.weight}
-          onChange={ (e) => this.setState({weight: e.target.value})}/>
-        </div> <br/>
-
+            <label>
+              weight {this.state.chooseMethod === "Metric" ? "(kgs)" : "(pounds)"}
+            </label>
+            <input name="weight"
+            value={this.state.weight}
+            onChange={ (e) => this.setState({weight: e.target.value})}/>
+        </div> 
+        <br/>
+        
         <div>
-          <label>Height(cm)</label>
-          <input name="height" value={this.state.height}
-          onChange={ (e) => this.setState({ height: e.target.value })}/>
-        </div>
+          <label> 
+            height {this.state.chooseMethod === "Metric" ? "(cms" : "(inches)"}
+          </label>
+            <input 
+              name= "weight" value={this.state.height}
+              onChange={ (e) => this.setState({ height: e.target.value })}/>
 
-        <button onClick={() => this.chooseMethod()}>
-          {this.state.method}
-        </button>
+          <button onClick={() => this.chooseMethod()}>
+            {this.state.method}
+          </button>
+      </div>
 
-      
         <DisplayResult
           weight={this.state.weight}
           height={this.state.height}
