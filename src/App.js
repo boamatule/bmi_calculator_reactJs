@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayResult from './Components/displayResult'
-import { Select } from 'semantic-ui-react'
+import { Container, Header, Grid } from 'semantic-ui-react'
 
 class App extends Component {
   constructor(props) {
@@ -8,57 +8,68 @@ class App extends Component {
     this.state = {
       weight: '',
       height: '',
-      method: 'Metric'
+      method: 'metric'
     }
   }
 
   chooseMethod(e) {
-    e.target.value
-
-  
-    if (this.state.chooseMethod === 'Metric') {
-      this.setState({ chooseMethod: 'Imperial' })
-    } else {
-      this.setState({chooseMethod: 'Metric'})
-      }
+    this.setState({method: e.target.value })
   }
 
-render() {
-    return (
-      <div>
-        <h1>BMI Converter.</h1>
-        <div>
-            <label>
-              weight {this.state.chooseMethod === "Metric" ? "(kgs)" : "(pounds)"}
-            </label>
-            <input name="weight"
-            value={this.state.weight}
-            onChange={ (e) => this.setState({weight: e.target.value})}/>
-        </div> 
-        <br/>
+
+
+  render() {
+      return (
+        <>
+          <Container>
+            <Grid centered columns={3}>
+              <Grid.Column>
+                <Header 
+                  as="h1" textAlign="center">
+                  BMI Calculator
+                </Header>
+              </Grid.Column>
+            </Grid>
+
         
-        <div>
-          <label> 
-            height {this.state.chooseMethod === "Metric" ? "(cms)" : "(inches)"}
-          </label>
-            <input 
-              name="weight" value={this.state.height}
-              onChange={ (e) => this.setState({ height: e.target.value })}/>
+                <div>
+                  <label>
+                    Weight {this.state.chooseMethod === "metric" ? "(lb)" : "(kg)"}
+                  </label>
+                  <input name="weight"
+                  value={this.state.weight}
+                  onChange={ (e) => this.setState({weight: e.target.value})}/>
+                </div>
 
-          <select id="method" onChange={(e) => this.chooseMethod(e)}>
-            <option value="metric" >Metric</option>
-            <option value="imperial" >Imperial</option>
-          </select>
-      </div>
+              
+                <div>
+                  <label> 
+                    Height {this.state.method === "metric" ? "(cm)" : "(in)"}
+                  </label>
+                    <input 
+                      name="weight" value={this.state.height}
+                      onChange={ (e) => this.setState({ height: e.target.value })}/>
 
-        <DisplayResult
-          weight={this.state.weight}
-          height={this.state.height}
-          method={this.state.method}
-        />
-      </div>
-    );
+                  <select id="method" onChange={(e) => this.chooseMethod(e)}>
+                  <option value="metric" >Metric</option>
+                  <option value="imperial" >Imperial</option>
+                </select>
+              </div>
+
+              <DisplayResult
+                weight={this.state.weight}
+                height={this.state.height}
+                method={this.state.method}
+              />
+
+          </Container> 
+        </>
+      );
+    }
   }
-}
+
+
+
+      
 
 export default App;

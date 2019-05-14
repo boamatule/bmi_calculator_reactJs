@@ -6,7 +6,14 @@ export const bmiCalculation = (weight, height, method) => {
   weight = isNaN(weight) ? 0 : weight;
   height = isNaN(height) ? 0 : height;
 
-  bmi = weight / (height / 100 * height / 100);
+  switch(method) {
+    case 'metric':
+      bmi = weight / (height / 100 * height / 100);
+      break;
+    case 'imperial':
+      bmi = weight = weight * 703 / (height * height)
+      break;
+  }
 
   let finalBMI = parseFloat(bmi.toFixed(2));
   let BMIMessage = setBMIMessage(finalBMI)
