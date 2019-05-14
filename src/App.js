@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DisplayResult from './Components/displayResult'
+import { Select } from 'semantic-ui-react'
 
 class App extends Component {
   constructor(props) {
@@ -10,8 +11,11 @@ class App extends Component {
       method: 'Metric'
     }
   }
+
+  chooseMethod(e) {
+    e.target.value
+
   
-  chooseMethod() {
     if (this.state.chooseMethod === 'Metric') {
       this.setState({ chooseMethod: 'Imperial' })
     } else {
@@ -22,6 +26,7 @@ class App extends Component {
 render() {
     return (
       <div>
+        <h1>BMI Converter.</h1>
         <div>
             <label>
               weight {this.state.chooseMethod === "Metric" ? "(kgs)" : "(pounds)"}
@@ -34,15 +39,16 @@ render() {
         
         <div>
           <label> 
-            height {this.state.chooseMethod === "Metric" ? "(cms" : "(inches)"}
+            height {this.state.chooseMethod === "Metric" ? "(cms)" : "(inches)"}
           </label>
             <input 
-              name= "weight" value={this.state.height}
+              name="weight" value={this.state.height}
               onChange={ (e) => this.setState({ height: e.target.value })}/>
 
-          <button onClick={() => this.chooseMethod()}>
-            {this.state.method}
-          </button>
+          <select id="method" onChange={(e) => this.chooseMethod(e)}>
+            <option value="metric" >Metric</option>
+            <option value="imperial" >Imperial</option>
+          </select>
       </div>
 
         <DisplayResult

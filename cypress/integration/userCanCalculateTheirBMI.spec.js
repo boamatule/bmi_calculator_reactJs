@@ -15,9 +15,9 @@ describe('BMI Converter', () => {
     describe('Metric method', () => {
         beforeEach(() => {
             // This before block will be executed prior to each test in this describe block
-            cy.get('select[id="method"]').select('metric')
-            cy.get('input[name="weight"]').type('95')
-            cy.get('input[name="height"]').type('186')
+            cy.get('button[id="method"]').click()
+            cy.get('input[name="weight-metric"]').type('95')
+            cy.get('input[name="height-metric"]').type('186')
         })
 
     it('displays assesment', async () => {   
