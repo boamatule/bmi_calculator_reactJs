@@ -4,7 +4,6 @@ describe('BMI Converter', () => {
     });
 
     beforeEach(function() {
-      // Reload the application between tests to reset state
         cy.reload();
     });
 
@@ -14,7 +13,6 @@ describe('BMI Converter', () => {
 
     describe('Metric method', () => {
         beforeEach(() => {
-            // This before block will be executed prior to each test in this describe block
             cy.get('button[id="method"]').click()
             cy.get('input[name="weight-metric"]').type('95')
             cy.get('input[name="height-metric"]').type('186')
@@ -31,7 +29,6 @@ describe('BMI Converter', () => {
 
     describe('Imperial method', async () => {
         beforeEach( async () => {
-        // This before block will be executed prior to each test in this describe block
         cy.get('select[id="method"]').select('imperial')
         cy.get('input[name="weight"]').type('200')
         cy.get('input[name="height"]').type('73')
