@@ -24,13 +24,13 @@ describe('BMI Converter', () => {
 	})
 
 	it('displays assesment', async () => {   
-			cy.contains('You are Overweight')
-	})
+				cy.contains('You are Overweight')
+		})
 
 	it('displays BMI value', async () => {   
-			cy.contains('BMI of 27.46')
+				cy.contains('BMI of 27.46')
+		})
 	})
-})
 
 	describe('Imperial method', () => {		
 			beforeEach( () => {

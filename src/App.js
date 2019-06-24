@@ -29,39 +29,39 @@ class App extends Component {
 						</Grid.Column>
 					</Grid>
 					<Divider></Divider>
-			
-						<>
-							<Segment>
-								<Label>
-									Weight {this.state.chooseMethod === "metric" ? "(lb)" : "(kg)"}
-									<Input name="weight"
-										value={this.state.weight}
-										onChange={ (e) => this.setState({weight: e.target.value})}/>
-								</Label>							
-						
-								<Label> 
-									Height {this.state.method === "metric" ? "(cm)" : "(in)"}
-									<Input name="height" 
-										value={this.state.height}
-										onChange={ (e) => this.setState({ height: e.target.value })}/>
-								</Label>
-							</Segment>
-						</>
 
-						<>
-							<Segment>
-								<select id="method" onChange={(e) => this.chooseMethod(e)}>
-									<option value="metric" >Metric</option>
-									<option value="imperial" >Imperial</option>
-								</select>
-							</Segment>
-						</>
+					<>
+						<Segment>
+							<Label>
+								Weight {this.state.chooseMethod === "metric" ? "(lb)" : "(kg)"}
+								<Input name="weight"
+									value={this.state.weight}
+									onChange={ (e) => this.setState({weight: e.target.value})}/>
+							</Label>							
+					
+							<Label> 
+								Height {this.state.method === "metric" ? "(cm)" : "(in)"}
+								<Input name="height" 
+									value={this.state.height}
+									onChange={ (e) => this.setState({ height: e.target.value })}/>
+							</Label>
+						</Segment>
+					</>
+					
+					<>
+						<Segment>
+							<select id="method" onChange={(e) => this.chooseMethod(e)}>
+								<option value="metric" >Metric</option>
+								<option value="imperial" >Imperial</option>
+							</select>
+						</Segment>
+					</>
 
-						<DisplayResult
-							weight={this.state.weight}
-							height={this.state.height}
-							method={this.state.method}
-						/>
+					<DisplayResult
+						weight={this.state.weight}
+						height={this.state.height}
+						method={this.state.method}
+					/>
 				</Container> 
 			</>
     );
