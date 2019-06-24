@@ -39,11 +39,11 @@ class App extends Component {
 										onChange={ (e) => this.setState({weight: e.target.value})}/>
 								</Label>							
 						
-									<Label> 
-										Height {this.state.method === "metric" ? "(cm)" : "(in)"}
-										<Input name="height" 
-											value={this.state.height}
-											onChange={ (e) => this.setState({ height: e.target.value })}/>
+								<Label> 
+									Height {this.state.method === "metric" ? "(cm)" : "(in)"}
+									<Input name="height" 
+										value={this.state.height}
+										onChange={ (e) => this.setState({ height: e.target.value })}/>
 								</Label>
 							</Segment>
 						</>

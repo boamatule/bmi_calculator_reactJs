@@ -19,7 +19,7 @@ export const bmiCalculation = (weight, height, method) => {
   let BMIMessage = setBMIMessage(finalBMI)
 
   if (isNaN(finalBMI) || !isFinite(finalBMI) || finalBMI === 0 || finalBMI < 0|| weight <= 0 || height <= 0 ){
-    return "Please, fill in positive numbers";
+    return "Please fill in valid numbers";
   } else {
     return `You are ${BMIMessage} with a BMI of ${finalBMI}`;
   }

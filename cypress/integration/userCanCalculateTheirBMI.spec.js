@@ -1,45 +1,50 @@
 describe('BMI Converter', () => {
-    before(function() {
-        cy.visit('http://localhost:3000');
-    });
+	before(function() {
+		cy.visit('http://localhost:3000');
+	});
 
-    beforeEach(function() {
-        cy.reload();
-    });
+	beforeEach(function() {
+		cy.reload();
+	});
 
-    it('should display "BMI Converter" text on page', () => {
-        cy.contains('BMI Converter');
-    });
+	it('should display "BMI Calculator" text on page', () => {
+		cy.contains('BMI Calculator');
+	});
 
-    describe('Metric method', () => {
-        beforeEach(() => {
-            cy.get('button[id="method"]').click()
-            cy.get('input[name="weight-metric"]').type('95')
-            cy.get('input[name="height-metric"]').type('186')
-        })
+	it('should display "Please fill in valid numbers" text on page', () => {
+    cy.contains('Please fill in valid numbers');
+  });
 
-    it('displays assesment', async () => {   
-        cy.contains('You are Overweight')
-    })
 
-    it('displays BMI value', async () => {   
-        cy.contains('BMI of 27.46')
-    })
+	describe('Metric method', () => {
+		beforeEach(() => {
+			cy.get('select[id="method"]').select('metric')
+			cy.get('input[name="weight"]').type('95')
+			cy.get('input[name="height"]').type('186')
+	})
+
+	it('displays assesment', async () => {   
+			cy.contains('You are Overweight')
+	})
+
+	it('displays BMI value', async () => {   
+			cy.contains('BMI of 27.46')
+	})
 })
 
-    describe('Imperial method', async () => {
-        beforeEach( async () => {
-        cy.get('select[id="method"]').select('imperial')
-        cy.get('input[name="weight"]').type('200')
-        cy.get('input[name="height"]').type('73')
-    })
+	describe('Imperial method', () => {		
+			beforeEach( () => {
+			cy.get('select[id="method"]').select('imperial')
+			cy.get('input[name="weight"]').type('200')
+			cy.get('input[name="height"]').type('73')
+		})
 
-        it('displays assesment', async () => {   
-            cy.contains('You are Overweight')
-    })
+		it('displays assesment', async () => {   
+			cy.contains('You are Overweight')
+		})
 
-        it('displays BMI value', async () => {   
-            cy.contains('BMI of 26.38')
-        })
-    })
+		it('displays BMI value', async () => {   
+			cy.contains('BMI of 26.38')
+		})
+	})
 }); 
