@@ -7,8 +7,9 @@ class App extends Component {
     super(props);
     this.state = {
       weight: '',
-      height: '',
-      method: 'metric'
+			height: '',
+			method: 'metric'
+			// method: 'imperial'
     }
 	}
 	
@@ -33,14 +34,14 @@ class App extends Component {
 					<>
 						<Segment>
 							<Label>
-								Weight {this.state.chooseMethod === "metric" ? "(lb)" : "(kg)"}
+								Weight {this.state.method === "metric" ? "(kg)" : "(lbs)"}
 								<Input name="weight"
 									value={this.state.weight}
-									onChange={ (e) => this.setState({weight: e.target.value})}/>
+									onChange={ (e) => this.setState({ weight: e.target.value})}/>
 							</Label>							
 					
 							<Label> 
-								Height {this.state.method === "metric" ? "(cm)" : "(in)"}
+								Height {this.state.method === "metric" ? "(cmgit ad)" : "(inches)"}
 								<Input name="height" 
 									value={this.state.height}
 									onChange={ (e) => this.setState({ height: e.target.value })}/>
@@ -50,7 +51,7 @@ class App extends Component {
 					
 					<>
 						<Segment>
-							<select id="method" onChange={(e) => this.chooseMethod(e)}>
+							<select id="method" value={this.state.method}  onChange={(e) => this.chooseMethod(e)}>
 								<option value="metric" >Metric</option>
 								<option value="imperial" >Imperial</option>
 							</select>
