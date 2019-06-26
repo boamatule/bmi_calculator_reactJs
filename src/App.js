@@ -41,7 +41,7 @@ class App extends Component {
 							</Label>							
 					
 							<Label> 
-								Height {this.state.method === "metric" ? "(cmgit ad)" : "(inches)"}
+								Height {this.state.method === "metric" ? "(cm)" : "(inches)"}
 								<Input name="height" 
 									value={this.state.height}
 									onChange={ (e) => this.setState({ height: e.target.value })}/>
